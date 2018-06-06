@@ -1,7 +1,6 @@
 'use strict'
 require('dotenv').config();
 const path = require('path');
-const webpack = require('webpack');
 const { VueLoaderPlugin } = require('vue-loader');
 const ASSET_PATH = process.env.ASSET_PATH || '/';
 
@@ -38,8 +37,5 @@ module.exports = {
   },
   plugins: [
     new VueLoaderPlugin(),
-    new webpack.DefinePlugin({
-      'process.env.ASSET_PATH': JSON.stringify(ASSET_PATH),
-    })
   ],
 };
