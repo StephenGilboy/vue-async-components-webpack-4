@@ -1,12 +1,12 @@
 'use strict'
-
+require('dotenv').config();
 const path = require('path');
 const webpack = require('webpack');
 const { VueLoaderPlugin } = require('vue-loader');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ASSET_PATH = process.env.ASSET_PATH || '/';
 
 module.exports = {
-  mode: 'development',
+  mode: 'production',
   entry: {
     index: './src/main.js',
   },
@@ -14,17 +14,12 @@ module.exports = {
     filename: '[name].bundle.js',
     chunkFilename: '[name].bundle.js',
     path: path.resolve(__dirname, '../dist'),
+    publicPath: ASSET_PATH,
   },
   resolve: {
-    extensions: ['*', '.js', '.vue', '.json'],
+    extensions: ['*', '.js', '.vue', '.json']
   },
   optimization: {
-    splitChunks: {
-      chunks: 'all',
-    },
-  },
-  devServer: {
-    hot: true,
   },
   module: {
     rules: [
@@ -43,11 +38,8 @@ module.exports = {
   },
   plugins: [
     new VueLoaderPlugin(),
-    new webpack.HotModuleReplacementPlugin(),
-    new HtmlWebpackPlugin({
-      filename: 'index.html',
-      template: 'index.html',
-      inject: true,
-    }),
+    new webpack.DefinePlugin({
+      'process.env.ASSET_PATH': JSON.stringify(ASSET_PATH),
+    })
   ],
 };

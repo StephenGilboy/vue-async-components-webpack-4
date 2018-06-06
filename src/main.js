@@ -1,8 +1,8 @@
 import Vue from 'vue';
 import App from './App.vue';
 import LocalOffers from './local-offers';
-import MakeItAMeal from './make-it-a-meal';
 import BuyAMeal from './buy-a-meal';
+import MakeItAMeal from './make-it-a-meal';
 
 new Vue({
   el: '#app',

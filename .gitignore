@@ -1,2 +1,4 @@
 node_modules/
 dist/
+prodtest.html
+.env
