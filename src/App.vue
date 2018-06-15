@@ -29,7 +29,6 @@ export default {
   name: 'App',
   data() {
     return {
-      msg: 'Hello, Stephen',
       useLocalOffers: false,
       useMiam: false,
       useBuyaMeal: false,
@@ -47,6 +46,9 @@ export default {
     },
   },
   computed: {
+    msg() {
+      return `${this.$store.getters.message} ${this.$store.getters.name}`;
+    },
     localOffersComponent() {
       if (!this.useLocalOffers) return '';
       return 'local-offers';

@@ -1,18 +1,15 @@
 <template>
   <div>
     <h3>Local Offers</h3>
-    <scroll></scroll>
+    <my-scroller></my-scroller>
   </div>
 </template>
 
 <script>
-import Scroll from './components/Scroll';
+import { scroll } from './components/Scroll';
 
 export default {
   name: 'local-offers',
-  components: {
-    'scroll': Scroll,
-  }
 }
 </script>
 
