@@ -7,11 +7,11 @@
 <script>
 export default {
   name: 'scroll',
-  data() {
-    return {
-      msg: 'IT WORKS!',
-    };
-  },
+  computed: {
+    msg() {
+      return `${this.$store.getters['localoffers/scrollMessage']} ${this.$store.getters.name}`;
+    }
+  }
 }
 </script>
 
